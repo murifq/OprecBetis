@@ -1,9 +1,9 @@
 "use client"
 
 import React, { useEffect, useState } from "react";
-// import ImageShip from './components/card/image'
+import './page.css';
 import Card from "../components/card/card";
-
+import NavigationBar from "../components/card/navigationbar";
 import ImageShip from "../components/card/image";
 export default function Home() {
     const [data, setData] = useState(null);
@@ -33,24 +33,21 @@ export default function Home() {
 
     return(
         <div>
+            <NavigationBar></NavigationBar>
             {data ? (
-                <div>
+                <div className="main">
                     <p>{data.message}</p>
                     <p>{data.jumlahPerahu}</p>
+                    <ul  id="list-books">
                     {data.daftarPerahu.map((perahu, index) => (
-                        <div key={index}>
-                            <Card name={perahu.name} capacity={perahu.capacity} color={perahu.color} is_sailing={perahu.is_sailing}></Card>
-                            {/* <ImageShip></ImageShip> 
-                            <p>{perahu.name}</p>
-                            <p>{perahu.description}</p>
-                            <p>{perahu.capacity}</p>
-                            <p>{perahu.color}</p>
-                            <p>{perahu.is_sailing ? 'Sailing' : 'Not Sailing'}</p> */}
-                        </div>
-                    ))}
+                            <Card name={perahu.name} capacity={perahu.capacity} color={perahu.color} is_sailing={perahu.is_sailing} id ={perahu.id}></Card>
+                            ))}
+                    </ul>
                 </div>
             ) : (
-                <p>Loading...</p>
+                <div className ="main">
+                    <p>Loading...</p>
+                </div>
             )}
         </div>
     )
