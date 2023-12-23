@@ -5,10 +5,10 @@ function NavigationBar({ position }) {
     return (
       <nav id="navbar">
         <div id="navbar-center">
-          <a href="/bookmarks/bookmarks" className="selected">
+          <a href="/main" className="selected">
             Halaman Utama
           </a>
-          <a href="{% url 'collection:my_collections' %}" className="option">
+          <a href="/add" className="option">
             Tambah Kapal
           </a>
         </div>
@@ -18,10 +18,10 @@ function NavigationBar({ position }) {
     return (
       <nav id="navbar">
         <div id="navbar-center">
-          <a href="/bookmarks/bookmarks" className="option">
+          <a href="/main" className="option">
             Halaman Utama
           </a>
-          <a href="{% url 'collection:my_collections' %}" className="selected">
+          <a href="/add" className="selected">
             Tambah Kapal
           </a>
         </div>
@@ -31,10 +31,10 @@ function NavigationBar({ position }) {
     return (
       <nav id="navbar">
         <div id="navbar-center">
-          <a href="/bookmarks/bookmarks" className="option">
+          <a href="/main" className="option">
             Halaman Utama
           </a>
-          <a href="{% url 'collection:my_collections' %}" className="option">
+          <a href="/add" className="option">
             Tambah Kapal
           </a>
         </div>
