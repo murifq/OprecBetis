@@ -2,6 +2,7 @@
 
 import { useForm } from 'react-hook-form';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 const AddPerahuForm = () => {
   const { register, handleSubmit } = useForm();
@@ -23,6 +24,7 @@ const AddPerahuForm = () => {
   
       if (response.ok) {
         console.log('Perahu added successfully');
+        history.push('/main');
         // Optionally, you can redirect the user or perform other actions
       } else {
         console.error('Failed to add perahu');
@@ -32,9 +34,10 @@ const AddPerahuForm = () => {
     }
   };
 
-  const handleLinkClick = () => {
-    // Manually trigger the form submission
-    handleSubmit(onSubmit)();
+  const handleLinkClick = (event) => {
+      // Manually trigger the form submission
+      handleSubmit(onSubmit)();
+      event.preventDefault();
   };
 
   return (
@@ -59,7 +62,7 @@ const AddPerahuForm = () => {
         <input {...register('color')} />
       </label>
 
-      <a href="" onClick={handleLinkClick}>Add Perahu</a>
+      <a  onClick={handleLinkClick} href="/main">Add Perahu</a>
     </form>
   );
 };
