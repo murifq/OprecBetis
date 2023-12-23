@@ -33,16 +33,17 @@ export default function Home() {
 
     return(
         <div>
-            <NavigationBar></NavigationBar>
+            <NavigationBar position={0}></NavigationBar>
             {data ? (
                 <div className="main">
-                    <p>{data.message}</p>
-                    <p>{data.jumlahPerahu}</p>
-                    <ul  id="list-books">
-                    {data.daftarPerahu.map((perahu, index) => (
-                            <Card name={perahu.name} capacity={perahu.capacity} color={perahu.color} is_sailing={perahu.is_sailing} id ={perahu.id}></Card>
-                            ))}
-                    </ul>
+                    <div className="contents">
+                        <p>Kamu memiliki <span>{data.jumlahPerahu}</span> kapal</p>
+                        <ul  id="list-books">
+                        {data.daftarPerahu.map((perahu, index) => (
+                                <Card name={perahu.name} capacity={perahu.capacity} color={perahu.color} is_sailing={perahu.is_sailing} id ={perahu.id}></Card>
+                                ))}
+                        </ul>
+                    </div>
                 </div>
             ) : (
                 <div className ="main">

@@ -64,7 +64,7 @@ export default function Home({ params, searchParams }) {
 
   return (
     <div>
-      <NavigationBar />
+      <NavigationBar position={"else"}></NavigationBar>
       {data ? (
         <div className="main">
           <Card

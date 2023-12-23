@@ -1,31 +1,73 @@
-nav{
-/* From https://css.glass */
-background: rgba(255, 255, 255, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
+* {
+  padding: 0px;
 }
 
-nav{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 50px;
-    position: fixed;
-    z-index: 999;
-    width: 100%;
-}
-#navbar-center{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: end;
-    color: white;
+nav {
+  /* From https://css.glass */
+  background: rgba(0, 35, 71, 0.2);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 30px rgba(0, 35, 71, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-nav a{
-    padding-right: 30px;
-    font-size: small;
-    color: black;
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
 }
+#navbar-center {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: end;
+  color: white;
+}
+
+nav a {
+  padding-right: 30px;
+  font-size: small;
+  background: rgba(0, 35, 71, 0.2);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 30px rgba(0, 35, 71, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.selected {
+  /* background-color:#ff5003; */
+  color: white;
+  border-radius: 8px; /* Adjust the radius as needed */
+  padding: 8px 16px; /* Adjust padding as needed */
+  text-decoration: none; /* Remove underlines from links */
+  display: inline-block; /* Ensures the padding and border-radius are applied */
+  background: rgba(255, 80, 03, 0.8);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 30px rgba(255, 80, 03, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.option {
+  color: white;
+  border-radius: 8px; /* Adjust the radius as needed */
+  padding: 8px 16px; /* Adjust padding as needed */
+  text-decoration: none; /* Remove underlines from links */
+  display: inline-block; /* Ensures the padding and border-radius are applied */
+}
+
+/* nav{
+    background-color:  #002347;
+} */
