@@ -106,7 +106,7 @@ export default function Detail({ params, searchParams }) {
                   <a className="editBtn"  href={`/edit/${data.perahu.id}`} >
                     Edit Perahu
                   </a>
-                  <a className="statusEditBtn" onClick={handleStatusChange} href="/main">
+                  <a className="statusEditBtn" onClick={handleStatusChange} >
                     Berlayar
                   </a>
                 </div>
