@@ -148,7 +148,7 @@ export default function Detail({ params, searchParams }) {
                   <a className="deleteBtn" href="/main" onClick={handleDelete}>
                     Delete Perahu
                   </a>
-                  <a className="editBtn" href="/main/edit">
+                  <a className="editBtn"  href={`/edit/${data.perahu.id}`} >
                     Edit Perahu
                   </a>
                 </div>
