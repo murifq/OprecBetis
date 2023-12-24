@@ -9,7 +9,7 @@ import "./page.css";
 import Card from "../../components/card/card";
 import NavigationBar from "../../components/card/navigationbar";
 import ImageShip from "../../components/card/image";
-export default function Home({ params, searchParams }) {
+export default function Detail({ params, searchParams }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -61,6 +61,32 @@ export default function Home({ params, searchParams }) {
       console.error("An error occurred while deleting perahu:", error);
     }
   };
+
+  const handleStatusChange = async () => {
+    try {
+      const response = await fetch(
+        `https://oprec-betis-be.up.railway.app/perahu/${data.perahu.id}/berlayar`,
+        {
+          method: "PATCH",
+          headers: {
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjOTUxYTFmZi1kZDA3LTQ1ZjAtYmRlZC0xNzZjZDExNDIzODEiLCJpZCI6ImM5NTFhMWZmLWRkMDctNDVmMC1iZGVkLTE3NmNkMTE0MjM4MSIsInVzZXJuYW1lIjoibXVyaWZxIiwiaWF0IjoxNzAyNjQxMjUyLCJleHAiOjE3MDUyMzMyNTJ9.S-MNOLWJkQwZ5hZSXIgGLp1trU0tWwWtAjaFQY4jlVc`,
+          },
+          body: JSON.stringify({ is_sailing: true }), // Modify the payload as needed
+        }
+      );
+  
+      if (!response.ok) {
+        console.error(`An error occurred: ${response.statusText}`);
+        return;
+      }
+  
+      console.log("Perahu status changed to Berlayar successfully");
+      // You can perform additional actions after a successful status change if needed
+    } catch (error) {
+      console.error("An error occurred while changing perahu status:", error);
+    }
+  };
+
   if (data != null) {
     if (data.perahu.is_sailing == false) {
       var status = "Berlabuh";
@@ -79,6 +105,9 @@ export default function Home({ params, searchParams }) {
                   </a>
                   <a className="editBtn"  href={`/edit/${data.perahu.id}`} >
                     Edit Perahu
+                  </a>
+                  <a className="statusEditBtn" onClick={handleStatusChange} href="/main">
+                    Berlayar
                   </a>
                 </div>
 

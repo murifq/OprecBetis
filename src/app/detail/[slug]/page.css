@@ -53,6 +53,14 @@
     border: 20px;
 }
 
+.statusEditBtn{
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    border: 20px;
+}
+
 .description{
     margin-top: 50px;
 }

@@ -5,7 +5,7 @@ import './page.css';
 import Card from "../components/card/card";
 import NavigationBar from "../components/card/navigationbar";
 import ImageShip from "../components/card/image";
-export default function Home() {
+export default function Main() {
     const [data, setData] = useState(null);
 
     useEffect(() => {

@@ -33,7 +33,7 @@ function Card({name, capacity, color, is_sailing, id}) {
     is_sailing = 'Berlayar';
     return (
 
-      <a className='berlayar' href={`detail/${id}`} className="border-0 shadow-md flex flex-col aspect-w-9 aspect-h-18 w-44 m-5 rounded-lg">
+      <a href={`detail/${id}`} className="border border-solid border-2 border-green-500 shadow-md flex flex-col aspect-w-9 aspect-h-18 w-44 m-5 rounded-lg">
           <ImageShip></ImageShip>
   
           <div className="product-information">   
