@@ -2,12 +2,28 @@
 
 import { useForm } from "react-hook-form";
 import React from "react";
-import { useHistory } from "react-router-dom";
 import NavigationBar from "../components/card/navigationbar";
 import "./page.css";
+import { ToastContainer, toast } from "react-toastify";
 
 const AddPerahuForm = () => {
   const { register, handleSubmit } = useForm();
+
+
+  const toastOptions = {
+    position: "top-right",
+    autoClose: 0.5, // Set the duration of the notification
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    style: {
+      fontSize: "14px", // Adjust the font size
+      padding: "12px", // Adjust the padding
+    },
+    icon: false, // Show the default icons
+  };
 
   const onSubmit = async (data) => {
     // Convert the 'capacity' value to a number
@@ -28,14 +44,15 @@ const AddPerahuForm = () => {
       );
 
       if (response.ok) {
-        console.log("Perahu added successfully");
-        history.push("/main");
-        // Optionally, you can redirect the user or perform other actions
+        toast.success("Perahu berhasil ditambahkan");
+        console.log("Perahu berhasil ditambahkan");
       } else {
-        console.error("Failed to add perahu");
+        toast.error("Perahu gagal ditambahkan");
+        console.error("Perahu gagal ditambahkan");
       }
     } catch (error) {
-      console.error("An error occurred during form submission:", error);
+      toast.error("Maaf, terdapat error");
+      console.error("Maaf, terdapat error", error);
     }
   };
 
@@ -48,7 +65,7 @@ const AddPerahuForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <NavigationBar position={"else"}></NavigationBar>
+      <NavigationBar position={1}></NavigationBar>
 
         <div className="add-form">
           <label>
@@ -78,7 +95,7 @@ const AddPerahuForm = () => {
             </div>
             <input {...register("color")} />
           </label>
-
+          <ToastContainer {...toastOptions} />
           <a onClick={handleLinkClick} href="/main" className="add-btn">
             Add Perahu
           </a>

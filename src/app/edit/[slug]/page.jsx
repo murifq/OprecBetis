@@ -5,10 +5,25 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import NavigationBar from "../../components/card/navigationbar";
 import "./page.css";
+import { ToastContainer, toast } from "react-toastify";
+
 
 const EditPerahuForm = ({ params, searchParams }) => {
   const { register, handleSubmit } = useForm();
-
+  const toastOptions = {
+    position: "top-right",
+    autoClose: 0.5, // Set the duration of the notification
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    style: {
+      fontSize: "14px", // Adjust the font size
+      padding: "12px", // Adjust the padding
+    },
+    icon: false, // Show the default icons
+  };
   const onSubmit = async (data) => {
     // Convert the 'capacity' value to a number
     data.capacity = parseInt(data.capacity, 10);
@@ -28,14 +43,15 @@ const EditPerahuForm = ({ params, searchParams }) => {
       );
 
       if (response.ok) {
-        console.log("Perahu edited successfully");
-        history.push("/main");
-        // Optionally, you can redirect the user or perform other actions
+        toast.success("Perahu berhasil diedit");
+        console.log("Perahu berhasil ditambahkan");
       } else {
-        console.error("Failed to edit perahu");
+        toast.error("Perahu gagal diedit");
+        console.error("Perahu gagal ditambahkan");
       }
     } catch (error) {
-      console.error("An error occurred during form submission:", error);
+      toast.error("Maaf, terdapat error");
+      console.error("Maaf, terdapat error", error);
     }
   };
 
@@ -78,7 +94,7 @@ const EditPerahuForm = ({ params, searchParams }) => {
             </div>
             <input {...register("color")} />
           </label>
-
+          <ToastContainer {...toastOptions} />
           <a onClick={handleLinkClick} href="/main" className="edit-btn">
             Edit Perahu
           </a>
