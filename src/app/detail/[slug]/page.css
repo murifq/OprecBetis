@@ -32,10 +32,21 @@
     border: 2px solid rgba(0, 35, 71, 1);
     border-radius: 5px;
     padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .deleteBtn{
     background-color: red;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    border: 20px;
+}
+
+.editBtn{
+    background-color: orange;
     color: white;
     border-radius: 5px;
     padding: 20px;
