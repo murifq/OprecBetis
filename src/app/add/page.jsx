@@ -93,7 +93,18 @@ const AddPerahuForm = () => {
             <div>
             Color:
             </div>
-            <input {...register("color")} />
+            <select  {...register("color")} class="form-select" aria-label="Default select example">
+                <option selected >Pilih warna</option>
+                <option value="RED">Red</option>
+                <option value="ORANGE">Orange</option>
+                <option value="YELLOW">Yellow</option>
+                <option value="GREEN">Green</option>
+                <option value="BLUE">Blue</option>
+                <option value="INDIGO">Indigo</option>
+                <option value="VIOLET">Violet</option>
+                <option value="WHITE">White</option>
+                <option value="BLACK">Black</option>
+            </select>
           </label>
           <ToastContainer {...toastOptions} />
           <a onClick={handleLinkClick} href="/main" className="add-btn">
