@@ -1,5 +1,49 @@
 .main{
     padding-top: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+.thumbnail-berlayar, .thumbnail-berlabuh{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.berlabuh{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}
+
+.berlayar{
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+}
+
+.datas{
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.buttons{
+    border: 2px solid rgba(0, 35, 71, 1);
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.deleteBtn{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    border: 20px;
+}
+
+.description{
+    margin-top: 50px;
 }
 
 ul{

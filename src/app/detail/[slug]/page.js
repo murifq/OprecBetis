@@ -61,31 +61,83 @@ export default function Home({ params, searchParams }) {
       console.error("An error occurred while deleting perahu:", error);
     }
   };
+  if (data != null) {
+    if (data.perahu.is_sailing == false) {
+      var status = "Berlabuh";
+      return (
+        <div>
+          <NavigationBar position={"else"}></NavigationBar>
+          {data ? (
+            <div className="main">
+              <div className="thumbnail-berlabuh">
+                <ImageShip className='gambarKapal'></ImageShip>
+              </div>
+              <div className="datas">
+                <div className="buttons">
+                  <a className="deleteBtn" href="/main" onClick={handleDelete}>
+                    Delete Perahu
+                  </a>
+                </div>
+    
+                <div className="description">
+                  <p>ID: {data.perahu.id}</p>
+                  <p>Nama: {data.perahu.name}</p>
+                  <p>Kapasitas: {data.perahu.capacity}</p>
+                  <p>Warna: {data.perahu.color}</p>
+                  <p >Status: <span className="berlabuh">{status}</span></p>
+    
+                  <p>Description: {data.perahu.description}</p>
+                  <p>Bought at: {data.perahu.bought_at}</p>
+                  <p>Updated at: {data.perahu.updated_at}</p>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="main">
+              <p>Loading...</p>
+            </div>
+          )}
+        </div>
+      );
+    } else {
+      var status = "Berlayar";
+      return (
+        <div>
+          <NavigationBar position={"else"}></NavigationBar>
+          {data ? (
+            <div className="main">
+              <div className="thumbnail-berlayar">
+                <ImageShip className='gambarKapal'></ImageShip>
+              </div>
+              <div className="datas">
+                <div className="buttons">
+                  <a className="deleteBtn" href="/main" onClick={handleDelete}>
+                    Delete Perahu
+                  </a>
+                </div>
+    
+                <div className="description">
+                  <p>ID: {data.perahu.id}</p>
+                  <p>Nama: {data.perahu.name}</p>
+                  <p>Kapasitas: {data.perahu.capacity}</p>
+                  <p>Warna: {data.perahu.color}</p>
+                  <p >Status: <span className="berlayar">{status}</span></p>
+    
+                  <p>Description: {data.perahu.description}</p>
+                  <p>Bought at: {data.perahu.bought_at}</p>
+                  <p>Updated at: {data.perahu.updated_at}</p>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="main">
+              <p>Loading...</p>
+            </div>
+          )}
+        </div>
+      );
+    }
+  }
 
-  return (
-    <div>
-      <NavigationBar position={"else"}></NavigationBar>
-      {data ? (
-        <div className="main">
-          <Card
-            id={data.perahu.id}
-            name={data.perahu.name}
-            capacity={data.perahu.capacity}
-            color={data.perahu.color}
-            is_sailing={data.perahu.is_sailing}
-          />
-          <p>Description: {data.perahu.description}</p>
-          <p>Bought at: {data.perahu.bought_at}</p>
-          <p>Updated at: {data.perahu.updated_at}</p>
-          <a href="/main" onClick={handleDelete}>
-            Delete Perahu
-          </a>
-        </div>
-      ) : (
-        <div className="main">
-          <p>Loading...</p>
-        </div>
-      )}
-    </div>
-  );
+  
 }

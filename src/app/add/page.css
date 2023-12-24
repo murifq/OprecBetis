@@ -1,0 +1,38 @@
+.add-form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 75px;
+}
+
+input{
+    margin-top: 20px;
+    font-size: small;
+    width: 60%;
+    height: 35px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid grey; /* Add a 1px solid black bottom border */
+    outline: none; /* Remove the focus outline (optional) */
+}
+
+input:focus{
+    border: none;
+    border-bottom: 1px solid #ff5003; /* Add a 1px solid black bottom border */
+    outline: none; /* Remove the focus outline (optional) */
+}
+
+label{
+    padding: 10px;
+    padding-right: 100px;
+}
+.add-btn{
+    background-color: #ff5003;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    border: 20px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
